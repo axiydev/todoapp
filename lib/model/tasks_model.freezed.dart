@@ -22,9 +22,11 @@ TasksModel _$TasksModelFromJson(Map<String, dynamic> json) {
 mixin _$TasksModel {
   String? get id => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
+  String? get taskListName => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   TaskStatus? get taskStatus => throw _privateConstructorUsedError;
+  bool? get isCompleted => throw _privateConstructorUsedError;
   DateTime? get publishDate => throw _privateConstructorUsedError;
   bool? get isFavourite => throw _privateConstructorUsedError;
 
@@ -43,9 +45,11 @@ abstract class $TasksModelCopyWith<$Res> {
   $Res call(
       {String? id,
       String? userId,
+      String? taskListName,
       String? title,
       String? description,
       TaskStatus? taskStatus,
+      bool? isCompleted,
       DateTime? publishDate,
       bool? isFavourite});
 }
@@ -65,9 +69,11 @@ class _$TasksModelCopyWithImpl<$Res, $Val extends TasksModel>
   $Res call({
     Object? id = freezed,
     Object? userId = freezed,
+    Object? taskListName = freezed,
     Object? title = freezed,
     Object? description = freezed,
     Object? taskStatus = freezed,
+    Object? isCompleted = freezed,
     Object? publishDate = freezed,
     Object? isFavourite = freezed,
   }) {
@@ -79,6 +85,10 @@ class _$TasksModelCopyWithImpl<$Res, $Val extends TasksModel>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      taskListName: freezed == taskListName
+          ? _value.taskListName
+          : taskListName // ignore: cast_nullable_to_non_nullable
               as String?,
       title: freezed == title
           ? _value.title
@@ -92,6 +102,10 @@ class _$TasksModelCopyWithImpl<$Res, $Val extends TasksModel>
           ? _value.taskStatus
           : taskStatus // ignore: cast_nullable_to_non_nullable
               as TaskStatus?,
+      isCompleted: freezed == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool?,
       publishDate: freezed == publishDate
           ? _value.publishDate
           : publishDate // ignore: cast_nullable_to_non_nullable
@@ -115,9 +129,11 @@ abstract class _$$_TasksModelCopyWith<$Res>
   $Res call(
       {String? id,
       String? userId,
+      String? taskListName,
       String? title,
       String? description,
       TaskStatus? taskStatus,
+      bool? isCompleted,
       DateTime? publishDate,
       bool? isFavourite});
 }
@@ -135,9 +151,11 @@ class __$$_TasksModelCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? userId = freezed,
+    Object? taskListName = freezed,
     Object? title = freezed,
     Object? description = freezed,
     Object? taskStatus = freezed,
+    Object? isCompleted = freezed,
     Object? publishDate = freezed,
     Object? isFavourite = freezed,
   }) {
@@ -149,6 +167,10 @@ class __$$_TasksModelCopyWithImpl<$Res>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      taskListName: freezed == taskListName
+          ? _value.taskListName
+          : taskListName // ignore: cast_nullable_to_non_nullable
               as String?,
       title: freezed == title
           ? _value.title
@@ -162,6 +184,10 @@ class __$$_TasksModelCopyWithImpl<$Res>
           ? _value.taskStatus
           : taskStatus // ignore: cast_nullable_to_non_nullable
               as TaskStatus?,
+      isCompleted: freezed == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool?,
       publishDate: freezed == publishDate
           ? _value.publishDate
           : publishDate // ignore: cast_nullable_to_non_nullable
@@ -180,9 +206,11 @@ class _$_TasksModel implements _TasksModel {
   const _$_TasksModel(
       {this.id,
       this.userId,
+      this.taskListName,
       this.title,
       this.description,
       this.taskStatus,
+      this.isCompleted,
       this.publishDate,
       this.isFavourite});
 
@@ -194,11 +222,15 @@ class _$_TasksModel implements _TasksModel {
   @override
   final String? userId;
   @override
+  final String? taskListName;
+  @override
   final String? title;
   @override
   final String? description;
   @override
   final TaskStatus? taskStatus;
+  @override
+  final bool? isCompleted;
   @override
   final DateTime? publishDate;
   @override
@@ -206,7 +238,7 @@ class _$_TasksModel implements _TasksModel {
 
   @override
   String toString() {
-    return 'TasksModel(id: $id, userId: $userId, title: $title, description: $description, taskStatus: $taskStatus, publishDate: $publishDate, isFavourite: $isFavourite)';
+    return 'TasksModel(id: $id, userId: $userId, taskListName: $taskListName, title: $title, description: $description, taskStatus: $taskStatus, isCompleted: $isCompleted, publishDate: $publishDate, isFavourite: $isFavourite)';
   }
 
   @override
@@ -216,11 +248,15 @@ class _$_TasksModel implements _TasksModel {
             other is _$_TasksModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.taskListName, taskListName) ||
+                other.taskListName == taskListName) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.taskStatus, taskStatus) ||
                 other.taskStatus == taskStatus) &&
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted) &&
             (identical(other.publishDate, publishDate) ||
                 other.publishDate == publishDate) &&
             (identical(other.isFavourite, isFavourite) ||
@@ -229,8 +265,8 @@ class _$_TasksModel implements _TasksModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userId, title, description,
-      taskStatus, publishDate, isFavourite);
+  int get hashCode => Object.hash(runtimeType, id, userId, taskListName, title,
+      description, taskStatus, isCompleted, publishDate, isFavourite);
 
   @JsonKey(ignore: true)
   @override
@@ -250,9 +286,11 @@ abstract class _TasksModel implements TasksModel {
   const factory _TasksModel(
       {final String? id,
       final String? userId,
+      final String? taskListName,
       final String? title,
       final String? description,
       final TaskStatus? taskStatus,
+      final bool? isCompleted,
       final DateTime? publishDate,
       final bool? isFavourite}) = _$_TasksModel;
 
@@ -264,11 +302,15 @@ abstract class _TasksModel implements TasksModel {
   @override
   String? get userId;
   @override
+  String? get taskListName;
+  @override
   String? get title;
   @override
   String? get description;
   @override
   TaskStatus? get taskStatus;
+  @override
+  bool? get isCompleted;
   @override
   DateTime? get publishDate;
   @override

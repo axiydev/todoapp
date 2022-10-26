@@ -53,5 +53,20 @@ class FireAuth {
     return null;
   }
 
+  static Future<UserModel?> get currentUser async {
+    try {
+      var userDocument = await FirestoreDb.firestore
+          .collection('users')
+          .doc(_firabseAuth.currentUser!.uid)
+          .get();
+      var dataJson = userDocument.data();
+      UserModel? user = UserModel.fromJson(dataJson!);
+      return user;
+    } catch (e) {
+      log(e.toString());
+    }
+    return null;
+  }
+
   static FirebaseAuth get auth => _firabseAuth;
 }

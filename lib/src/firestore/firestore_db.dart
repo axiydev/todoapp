@@ -31,4 +31,6 @@ class FirestoreDb {
 
     return false;
   }
+
+  static FirebaseFirestore get firestore => _firebaseFireStore;
 }

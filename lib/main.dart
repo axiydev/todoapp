@@ -1,7 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
@@ -22,8 +21,7 @@ Theme:::To Do App
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppSetup.setup;
-  runApp(DevicePreview(
-      enabled: !kReleaseMode, builder: (context) => const MyApp()));
+  runApp(DevicePreview(enabled: false, builder: (context) => const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -36,8 +34,9 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => child!,
       child: GetMaterialApp(
+        defaultTransition: Transition.native,
         scaffoldMessengerKey: AppConstants.messangerKey,
-        useInheritedMediaQuery: true,
+        useInheritedMediaQuery: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,

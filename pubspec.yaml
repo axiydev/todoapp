@@ -25,6 +25,9 @@ dependencies:
   json_annotation: ^4.7.0
   shared_preferences: ^2.0.15
   uuid: ^3.0.6
+  get_storage: ^2.0.3
+  flutter_slidable: ^2.0.0
+  flutter_staggered_animations: ^1.1.1
 
 dev_dependencies:
   flutter_test:

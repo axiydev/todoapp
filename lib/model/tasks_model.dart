@@ -8,9 +8,11 @@ class TasksModel with _$TasksModel {
   const factory TasksModel(
       {String? id,
       String? userId,
+      String? taskListName,
       String? title,
       String? description,
       TaskStatus? taskStatus,
+      bool? isCompleted,
       DateTime? publishDate,
       bool? isFavourite}) = _TasksModel;
 

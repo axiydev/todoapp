@@ -20,7 +20,7 @@ class FireAuth {
           username: email,
           name: name,
           email: email,
-          taskNames: ['important', 'tasks'],
+          taskNames: ['important', 'tasks', 'completed'],
           datePublished: DateTime.now(),
           password: password);
       final saveUserToYourDb = await FirestoreDb.saveUser(userData: user);

@@ -15,6 +15,7 @@ _$_TasksModel _$$_TasksModelFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       taskStatus: $enumDecodeNullable(_$TaskStatusEnumMap, json['taskStatus']),
       isCompleted: json['isCompleted'] as bool?,
+      isSelected: json['isSelected'] as bool?,
       publishDate: json['publishDate'] == null
           ? null
           : DateTime.parse(json['publishDate'] as String),
@@ -30,6 +31,7 @@ Map<String, dynamic> _$$_TasksModelToJson(_$_TasksModel instance) =>
       'description': instance.description,
       'taskStatus': _$TaskStatusEnumMap[instance.taskStatus],
       'isCompleted': instance.isCompleted,
+      'isSelected': instance.isSelected,
       'publishDate': instance.publishDate?.toIso8601String(),
       'isFavourite': instance.isFavourite,
     };

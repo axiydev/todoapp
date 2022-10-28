@@ -13,6 +13,7 @@ class TasksModel with _$TasksModel {
       String? description,
       TaskStatus? taskStatus,
       bool? isCompleted,
+      bool? isSelected,
       DateTime? publishDate,
       bool? isFavourite}) = _TasksModel;
 

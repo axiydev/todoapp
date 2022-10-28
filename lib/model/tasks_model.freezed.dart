@@ -27,6 +27,7 @@ mixin _$TasksModel {
   String? get description => throw _privateConstructorUsedError;
   TaskStatus? get taskStatus => throw _privateConstructorUsedError;
   bool? get isCompleted => throw _privateConstructorUsedError;
+  bool? get isSelected => throw _privateConstructorUsedError;
   DateTime? get publishDate => throw _privateConstructorUsedError;
   bool? get isFavourite => throw _privateConstructorUsedError;
 
@@ -50,6 +51,7 @@ abstract class $TasksModelCopyWith<$Res> {
       String? description,
       TaskStatus? taskStatus,
       bool? isCompleted,
+      bool? isSelected,
       DateTime? publishDate,
       bool? isFavourite});
 }
@@ -74,6 +76,7 @@ class _$TasksModelCopyWithImpl<$Res, $Val extends TasksModel>
     Object? description = freezed,
     Object? taskStatus = freezed,
     Object? isCompleted = freezed,
+    Object? isSelected = freezed,
     Object? publishDate = freezed,
     Object? isFavourite = freezed,
   }) {
@@ -106,6 +109,10 @@ class _$TasksModelCopyWithImpl<$Res, $Val extends TasksModel>
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isSelected: freezed == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool?,
       publishDate: freezed == publishDate
           ? _value.publishDate
           : publishDate // ignore: cast_nullable_to_non_nullable
@@ -134,6 +141,7 @@ abstract class _$$_TasksModelCopyWith<$Res>
       String? description,
       TaskStatus? taskStatus,
       bool? isCompleted,
+      bool? isSelected,
       DateTime? publishDate,
       bool? isFavourite});
 }
@@ -156,6 +164,7 @@ class __$$_TasksModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? taskStatus = freezed,
     Object? isCompleted = freezed,
+    Object? isSelected = freezed,
     Object? publishDate = freezed,
     Object? isFavourite = freezed,
   }) {
@@ -188,6 +197,10 @@ class __$$_TasksModelCopyWithImpl<$Res>
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isSelected: freezed == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool?,
       publishDate: freezed == publishDate
           ? _value.publishDate
           : publishDate // ignore: cast_nullable_to_non_nullable
@@ -211,6 +224,7 @@ class _$_TasksModel implements _TasksModel {
       this.description,
       this.taskStatus,
       this.isCompleted,
+      this.isSelected,
       this.publishDate,
       this.isFavourite});
 
@@ -232,13 +246,15 @@ class _$_TasksModel implements _TasksModel {
   @override
   final bool? isCompleted;
   @override
+  final bool? isSelected;
+  @override
   final DateTime? publishDate;
   @override
   final bool? isFavourite;
 
   @override
   String toString() {
-    return 'TasksModel(id: $id, userId: $userId, taskListName: $taskListName, title: $title, description: $description, taskStatus: $taskStatus, isCompleted: $isCompleted, publishDate: $publishDate, isFavourite: $isFavourite)';
+    return 'TasksModel(id: $id, userId: $userId, taskListName: $taskListName, title: $title, description: $description, taskStatus: $taskStatus, isCompleted: $isCompleted, isSelected: $isSelected, publishDate: $publishDate, isFavourite: $isFavourite)';
   }
 
   @override
@@ -257,6 +273,8 @@ class _$_TasksModel implements _TasksModel {
                 other.taskStatus == taskStatus) &&
             (identical(other.isCompleted, isCompleted) ||
                 other.isCompleted == isCompleted) &&
+            (identical(other.isSelected, isSelected) ||
+                other.isSelected == isSelected) &&
             (identical(other.publishDate, publishDate) ||
                 other.publishDate == publishDate) &&
             (identical(other.isFavourite, isFavourite) ||
@@ -265,8 +283,18 @@ class _$_TasksModel implements _TasksModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, userId, taskListName, title,
-      description, taskStatus, isCompleted, publishDate, isFavourite);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      userId,
+      taskListName,
+      title,
+      description,
+      taskStatus,
+      isCompleted,
+      isSelected,
+      publishDate,
+      isFavourite);
 
   @JsonKey(ignore: true)
   @override
@@ -291,6 +319,7 @@ abstract class _TasksModel implements TasksModel {
       final String? description,
       final TaskStatus? taskStatus,
       final bool? isCompleted,
+      final bool? isSelected,
       final DateTime? publishDate,
       final bool? isFavourite}) = _$_TasksModel;
 
@@ -311,6 +340,8 @@ abstract class _TasksModel implements TasksModel {
   TaskStatus? get taskStatus;
   @override
   bool? get isCompleted;
+  @override
+  bool? get isSelected;
   @override
   DateTime? get publishDate;
   @override

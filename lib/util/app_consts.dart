@@ -39,7 +39,9 @@ class AppRouteUtils {
         binding: TaskBinding()),
     GetPage(
         name: AppRouteNames.taskListView,
-        page: () => const TaskListView(),
+        page: () => const TaskListView(
+              isEdit: false,
+            ),
         binding: TaskListBinding())
   ];
 }

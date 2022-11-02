@@ -6,8 +6,11 @@ import 'package:todoapp/page/main/tasks/task_controller.dart';
 import 'package:todoapp/page/main/tasks/task_list/task_list_view.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class TaskView extends GetView<TaskController> {
-  const TaskView({super.key});
+  const TaskView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,13 @@ class TaskView extends GetView<TaskController> {
                 init: controller,
                 builder: (_) {
                   return IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.delete));
+                      onPressed: () {
+                        controller.deleteTaskListCollection(
+                          name: controller.taskListName,
+                          collectionId: controller.listTaskId,
+                        );
+                      },
+                      icon: const Icon(Icons.delete));
                 }),
           ],
           bottom: TabBar(
@@ -73,7 +82,9 @@ class TaskView extends GetView<TaskController> {
                   TabBarView(
                     children: [
                       TaskListView(
-                        listName: controller.taskListName,
+                        listName: controller.taskListName +
+                            '_' +
+                            controller.listTaskId,
                         isEdit: true,
                       ),
                       TaskListView(

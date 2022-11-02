@@ -18,7 +18,7 @@ class AppRouteUtils {
     ///Main
     GetPage(
         name: AppRouteNames.main,
-        page: () => MainView(),
+        page: () => MainView.view,
         binding: MainBinding()),
 
     ///Sign In
@@ -51,4 +51,6 @@ class AppConstants {
   static const argumentName = 'tasksListName';
   static const important = 'important';
   static const task = 'task';
+  static const id = 'id';
+  static const taskList = 'taskListModel';
 }

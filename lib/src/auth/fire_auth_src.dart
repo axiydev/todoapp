@@ -1,9 +1,11 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:todoapp/model/task_list_wrapper.dart';
 import 'package:todoapp/model/user_model.dart';
 import 'package:todoapp/src/firestore/firestore_db.dart';
 import 'package:todoapp/src/prefs/prefs.dart';
+import 'package:uuid/uuid.dart';
 
 class FireAuth {
   static final _firabseAuth = FirebaseAuth.instance;
@@ -15,12 +17,25 @@ class FireAuth {
     try {
       final UserCredential credentional = await _firabseAuth
           .createUserWithEmailAndPassword(email: email!, password: password!);
+      TaskListModel? important = TaskListModel(
+        id: const Uuid().v1(),
+        taskListName: 'important',
+        publishDate: DateTime.now(),
+        userId: FireAuth.auth.currentUser!.uid,
+      );
+      TaskListModel? complated = TaskListModel(
+        id: const Uuid().v1(),
+        taskListName: 'complated',
+        publishDate: DateTime.now(),
+        userId: FireAuth.auth.currentUser!.uid,
+      );
+
       UserModel? user = UserModel(
           uid: credentional.user!.uid,
           username: email,
           name: name,
           email: email,
-          taskNames: ['important', 'tasks', 'completed'],
+          taskNames: List.from([important.toJson(), complated.toJson()]),
           datePublished: DateTime.now(),
           password: password);
       final saveUserToYourDb = await FirestoreDb.saveUser(userData: user);

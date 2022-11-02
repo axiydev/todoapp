@@ -10,6 +10,7 @@ import 'package:todoapp/src/prefs/prefs.dart';
 import 'package:todoapp/util/app_routes.dart';
 
 class MainController extends GetxController {
+  TextEditingController? listNameController = TextEditingController();
   void logout() async {
     try {
       final loggedOut = await Prefs.removeUid();
@@ -23,18 +24,27 @@ class MainController extends GetxController {
     }
   }
 
-  void showAlertDiologApp(BuildContext context) {
+  @override
+  void onInit() {
+    update();
+    log('initSTATE');
+    super.onInit();
+  }
+
+  void showAlertDiologApp(BuildContext context,
+      {required Function onCreateFunctionPressed}) async {
     showDialog(
         context: context,
         barrierDismissible: true,
         builder: (context) => AlertDialog(
               title: const Text('New List'),
               content: TextFormField(
+                  controller: listNameController,
                   decoration: const InputDecoration(
-                filled: true,
-                hintText: 'Enter list title',
-                fillColor: AppColors.dialogFieldColor,
-              )),
+                    filled: true,
+                    hintText: 'Enter list title',
+                    fillColor: AppColors.dialogFieldColor,
+                  )),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(28.w)),
               actions: [
@@ -46,7 +56,7 @@ class MainController extends GetxController {
                     },
                     child: const Text('Cancel')),
                 ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () => onCreateFunctionPressed(),
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.w)),

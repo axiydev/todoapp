@@ -26,7 +26,8 @@ mixin _$UserModel {
   String? get name => throw _privateConstructorUsedError;
   DateTime? get datePublished => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
-  List<String>? get taskNames => throw _privateConstructorUsedError;
+  List<Map<String, dynamic>>? get taskNames =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +47,7 @@ abstract class $UserModelCopyWith<$Res> {
       String? name,
       DateTime? datePublished,
       String? password,
-      List<String>? taskNames});
+      List<Map<String, dynamic>>? taskNames});
 }
 
 /// @nodoc
@@ -98,7 +99,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
       taskNames: freezed == taskNames
           ? _value.taskNames
           : taskNames // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<Map<String, dynamic>>?,
     ) as $Val);
   }
 }
@@ -117,7 +118,7 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       String? name,
       DateTime? datePublished,
       String? password,
-      List<String>? taskNames});
+      List<Map<String, dynamic>>? taskNames});
 }
 
 /// @nodoc
@@ -167,7 +168,7 @@ class __$$_UserModelCopyWithImpl<$Res>
       taskNames: freezed == taskNames
           ? _value._taskNames
           : taskNames // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<Map<String, dynamic>>?,
     ));
   }
 }
@@ -182,7 +183,7 @@ class _$_UserModel implements _UserModel {
       this.name,
       this.datePublished,
       this.password,
-      final List<String>? taskNames})
+      final List<Map<String, dynamic>>? taskNames})
       : _taskNames = taskNames;
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
@@ -200,9 +201,9 @@ class _$_UserModel implements _UserModel {
   final DateTime? datePublished;
   @override
   final String? password;
-  final List<String>? _taskNames;
+  final List<Map<String, dynamic>>? _taskNames;
   @override
-  List<String>? get taskNames {
+  List<Map<String, dynamic>>? get taskNames {
     final value = _taskNames;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
@@ -259,7 +260,7 @@ abstract class _UserModel implements UserModel {
       final String? name,
       final DateTime? datePublished,
       final String? password,
-      final List<String>? taskNames}) = _$_UserModel;
+      final List<Map<String, dynamic>>? taskNames}) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
@@ -277,7 +278,7 @@ abstract class _UserModel implements UserModel {
   @override
   String? get password;
   @override
-  List<String>? get taskNames;
+  List<Map<String, dynamic>>? get taskNames;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

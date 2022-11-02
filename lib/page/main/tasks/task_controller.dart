@@ -2,16 +2,20 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todoapp/model/task_list_wrapper.dart';
 import 'package:todoapp/model/task_status.dart';
 import 'package:todoapp/model/tasks_model.dart';
 import 'package:todoapp/src/auth/fire_auth_src.dart';
 import 'package:todoapp/src/firestore/firestore_db.dart';
 import 'package:todoapp/src/logger/logger_custom.dart';
 import 'package:todoapp/util/app_consts.dart';
+import 'package:todoapp/util/app_routes.dart';
 import 'package:uuid/uuid.dart';
 
 class TaskController extends GetxController {
   final taskListName = Get.arguments[AppConstants.argumentName];
+  final listTaskId = Get.arguments[AppConstants.id];
+  final taskListData = Get.arguments[AppConstants.taskList];
   final taskTextController = TextEditingController();
   bool? _isEdit = false;
   void changeEdit() {
@@ -30,7 +34,7 @@ class TaskController extends GetxController {
       TasksModel? task = TasksModel(
           id: id,
           userId: FireAuth.auth.currentUser!.uid,
-          taskListName: taskListName,
+          taskListName: taskListName + '_' + listTaskId,
           publishDate: DateTime.now(),
           isCompleted: false,
           isSelected: _isSelected,
@@ -94,6 +98,24 @@ class TaskController extends GetxController {
   void onChange(bool? value) {
     _isFavourite = value;
     update();
+  }
+
+  void deleteTaskListCollection({
+    required String? name,
+    required String collectionId,
+  }) async {
+    try {
+      final isDeleted = await FirestoreDb.deleteTaskList(
+          collectionName: name,
+          listCollectionId: collectionId,
+          taskListModel: TaskListModel.fromJson(taskListData));
+      if (isDeleted!) {
+        AppLogger.onLog('Successfully deleted');
+        Get.toNamed(AppRouteNames.main);
+      }
+    } catch (e) {
+      log(e.toString());
+    }
   }
 
   bool? get isCompleted => _isFavourite!;

@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
             // ignore: unrelated_type_equality_checks
             if (snapshot.connectionState == ConnectionState.active) {
               if (snapshot.hasData) {
-                return MainView();
+                return MainView.view;
               } else {
                 return SignInView();
               }

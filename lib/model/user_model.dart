@@ -12,7 +12,7 @@ class UserModel with _$UserModel {
       String? name,
       DateTime? datePublished,
       String? password,
-      List<String>? taskNames}) = _UserModel;
+      List<Map<String, dynamic>>? taskNames}) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);

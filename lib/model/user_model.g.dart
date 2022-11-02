@@ -16,7 +16,7 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
           : DateTime.parse(json['datePublished'] as String),
       password: json['password'] as String?,
       taskNames: (json['taskNames'] as List<dynamic>?)
-          ?.map((e) => e as String)
+          ?.map((e) => e as Map<String, dynamic>)
           .toList(),
     );
 
